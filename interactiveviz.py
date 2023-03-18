@@ -19,8 +19,8 @@ selection = alt.selection_single(empty = 'none', on = 'mouseover', nearest = Tru
 color_condition = alt.condition(selection, alt.ColorValue('red'), alt.ColorValue('steelblue'))
 
 scatter = alt.Chart(df).mark_circle(size = 100).encode(
-    x= 'Income',
-    y= 'Insurance_rate',
+    x= alt.X('Income', title = 'Income ($)'),
+    y= alt.Y('Insurance_rate', title = 'Insurance Rate (%)'),
     color = color_condition,
     tooltip = ['Location', 'Insurance_rate', 'Income']
 ).properties(
